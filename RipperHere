@@ -211,7 +211,6 @@ local blacklist = {
 	"dresser",
 	"floor",
 	"wall",
-	"door",
 	"frame",
 	"ceiling",
 	"light",
