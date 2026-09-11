@@ -113,8 +113,22 @@ task.spawn(function()
 		wait(6.771)
 		sound5:Destroy()
 		sound51:Destroy()
-		end)
- 
+
+local doorSound1 = Instance.new("Sound")
+doorSound1.SoundId = "rbxassetid://9126281820"
+doorSound1.Volume = 3
+doorSound1.Parent = SoundService
+
+local doorSound2 = Instance.new("Sound")
+doorSound2.SoundId = "rbxassetid://9126281769"
+doorSound2.Volume = 3
+doorSound2.Parent = SoundService
+
+local doorSound3 = Instance.new("Sound")
+doorSound3.SoundId = "rbxassetid://126631007956569"
+doorSound3.Volume = 3
+doorSound3.Parent = SoundService
+
 	local Reboundcolor = Instance.new("ColorCorrectionEffect",game.Lighting) game.Debris:AddItem(Reboundcolor,24)
 	Reboundcolor.Name = "Warn"
 	Reboundcolor.TintColor = Color3.fromRGB(255, 0, 0) Reboundcolor.Saturation = 0 Reboundcolor.Contrast = 0.2
@@ -218,7 +232,8 @@ local blacklist = {
 	"beam",
 	"window",
 	"gate",
-	"stairs"
+	"stairs",
+    "chair"
 }
  
 local function IsBlacklisted(name)
@@ -270,7 +285,7 @@ entity:SetCallback("OnEnterRoom", function(room: Model, firstTime: boolean)
 				task.wait()
 				obj.Anchored = false
 				obj.Massless = true
-				obj.CanCollide = false
+				obj.CanCollide = true
  
 				obj.AssemblyLinearVelocity = Vector3.new(
 					math.random(-150, 150),
