@@ -191,24 +191,8 @@ entity:SetCallback("OnStartMoving", function()
 		Close.TimePosition = 12.932
 		Close.Volume = 1.51
  
-		cui:Destroy()
-        end
+		cui:Destroy(
 
-local doorSound1 = Instance.new("Sound")
-doorSound1.SoundId = "rbxassetid://9126281820"
-doorSound1.Volume = 3
-doorSound1.Parent = SoundService
-
-local doorSound2 = Instance.new("Sound")
-doorSound2.SoundId = "rbxassetid://9126281769"
-doorSound2.Volume = 3
-doorSound2.Parent = SoundService
-
-local doorSound3 = Instance.new("Sound")
-doorSound3.SoundId = "rbxassetid://126631007956569"
-doorSound3.Volume = 3
-doorSound3.Parent = SoundService
- 
 	end)
 end)
  
