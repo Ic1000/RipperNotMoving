@@ -113,7 +113,8 @@ task.spawn(function()
 		wait(6.771)
 		sound5:Destroy()
 		sound51:Destroy()
-
+		end)
+ 
 	local Reboundcolor = Instance.new("ColorCorrectionEffect",game.Lighting) game.Debris:AddItem(Reboundcolor,24)
 	Reboundcolor.Name = "Warn"
 	Reboundcolor.TintColor = Color3.fromRGB(255, 0, 0) Reboundcolor.Saturation = 0 Reboundcolor.Contrast = 0.2
@@ -191,8 +192,8 @@ entity:SetCallback("OnStartMoving", function()
 		Close.TimePosition = 12.932
 		Close.Volume = 1.51
  
-		cui:Destroy(
-
+		cui:Destroy()
+ 
 	end)
 end)
  
@@ -210,6 +211,7 @@ local blacklist = {
 	"dresser",
 	"floor",
 	"wall",
+	"door",
 	"frame",
 	"ceiling",
 	"light",
@@ -217,8 +219,7 @@ local blacklist = {
 	"beam",
 	"window",
 	"gate",
-	"stairs",
-    "chair"
+	"stairs"
 }
  
 local function IsBlacklisted(name)
