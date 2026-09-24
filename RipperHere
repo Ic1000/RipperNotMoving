@@ -488,7 +488,7 @@ local function SpawnRipper()
 
 				Enabled = true,
 				KillOnMove = false,
-				Range = 40,
+				Range = 80,
 				Amount = 125,
 				IgnoreHiding = false,
 
