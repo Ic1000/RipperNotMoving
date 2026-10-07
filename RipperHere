@@ -19,6 +19,7 @@ local SoundService = game:GetService("SoundService")
 local Lighting = game:GetService("Lighting")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
@@ -581,7 +582,6 @@ local function SpawnRipper()
 
 			doorSound1:Play()
 			doorSound2:Play()
-			doorSound3:Play()
 
 			BreakRoom(room)
 
@@ -613,6 +613,24 @@ local function SpawnRipper()
 			print("[RIPPER] Despawning")
 			
 			SetRoomRed(false)
+
+			-- PHÁT TIẾNG ĐẬP CỬA SỐ 3 KHI DESPAWNING
+			doorSound3:Play()
+
+			-- TỰ ĐỘNG MỞ CỬA PHÒNG MỚI NHẤT
+			pcall(function()
+				local gameData = ReplicatedStorage:FindFirstChild("GameData")
+				local latestRoomVal = gameData and gameData:FindFirstChild("LatestRoom")
+				
+				if latestRoomVal then
+					local currentRooms = workspace:FindFirstChild("CurrentRooms")
+					local latestRoom = currentRooms and currentRooms:FindFirstChild(tostring(latestRoomVal.Value))
+					
+					if latestRoom and latestRoom:FindFirstChild("Door") and latestRoom.Door:FindFirstChild("ClientOpen") then
+						latestRoom.Door.ClientOpen:FireServer()
+					end
+				end
+			end)
 
 		end
 	)
@@ -847,4 +865,6 @@ print("First New Room : SPAWN")
 print("Maximum Spawn : 1")
 print("Achievement : EXACTLY ONCE PER SESSION")
 print("Custom Red Lighting : ACTIVE")
+print("Auto Open Door on Despawn: ACTIVE")
+print("Door Sound 3 on Despawn: ACTIVE")
 print("--------------------------------")
